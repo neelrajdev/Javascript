@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Priority Task Board</title>
+  <style>
+    body { font-family: sans-serif; max-width: 480px; margin: 40px auto; }
+    form { display: flex; gap: 8px; margin-bottom: 16px; }
+    input { flex: 1; padding: 6px; }
+    #filter-bar { display: flex; gap: 8px; margin-bottom: 12px; }
+    ul { list-style: none; padding: 0; }
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 8px;
+      border: 1px solid #ddd;
+    }
+    .urgent { border-left: 5px solid crimson; background-color: #fff5f5; }
+    .completed .task-text { text-decoration: line-through; color: grey; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <h2>Priority Task Board</h2>
+
+  <form id="task-form">
+    <input id="task-input" type="text" placeholder="Enter a task..." required />
+    <select id="priority-select">
+      <option value="normal">Normal</option>
+      <option value="urgent">Urgent</option>
+    </select>
+    <button type="submit">Add</button>
+  </form>
+
+  <div id="filter-bar">
+    <button type="button" data-filter="all">All</button>
+    <button type="button" data-filter="urgent">Urgent Only</button>
+    <button type="button" data-filter="normal">Normal Only</button>
+  </div>
+
+  <p>Pending tasks: <span id="pending-count">0</span></p>
+
+  <ul id="task-list"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
